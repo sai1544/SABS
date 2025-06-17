@@ -9,8 +9,17 @@ namespace SmartAppointmentBookingSystem.Services
 {
     public class AppointmentManager
     {
-        //using Linq for professionalid,professionalemail
         private List<Appointment> _appointments;
+        //using LINQ by date
+        public IEnumerable<Appointment> GetAppointmentsByDate(DateTime date, List<Appointment> allAppointments)
+        {
+            if (allAppointments == null)
+                throw new ArgumentNullException(nameof(allAppointments), "Appointment list cannot be null.");
+
+            return allAppointments.Where(a => a.AppointmentDate.Date == date.Date);
+        }
+        //using Linq for professionalid,professionalemail
+        
         public IEnumerable<Appointment> GetAppointmentsByProfessionalName(string professionalName)
         {
             return _appointments.Where(a => a.Professional.Name.Equals(professionalName, StringComparison.OrdinalIgnoreCase));
