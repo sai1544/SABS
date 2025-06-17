@@ -11,7 +11,7 @@ namespace SmartAppointmentBookingSystem.Services
     {
         private readonly string _appointmentsFilePath = "appointments.txt";
 
-        public Appointment CreateAppointment(User client, Professional professional, DateTime appointmentDate)
+        public async Task<Appointment> CreateAppointmentAsync(User client, Professional professional, DateTime appointmentDate)
         {
             try
             {
@@ -21,14 +21,15 @@ namespace SmartAppointmentBookingSystem.Services
                 if (appointmentDate <= DateTime.Now)
                     throw new ArgumentException("Appointment date must be in the future.");
 
-                Appointment newAppointment = new Appointment(
+
+                var newAppointment = new Appointment(
                     id: new Random().Next(1, 1000),
                     client: client,
                     professional: professional,
                     appointmentDate: appointmentDate
                 );
 
-                SaveAppointmentToFile(newAppointment);
+                await SaveAppointmentToFileAsync(newAppointment);
                 return newAppointment;
             }
             catch (Exception ex)
@@ -38,18 +39,18 @@ namespace SmartAppointmentBookingSystem.Services
             }
         }
 
-        public void CancelAppointment(int appointmentId)
+        public async Task CancelAppointmentAsync(int appointmentId)
         {
             try
             {
-                var appointments = LoadAppointmentsFromFile();
+                var appointments = await LoadAppointmentsFromFileAsync();
                 var appointment = appointments.FirstOrDefault(a => a.Id == appointmentId);
 
                 if (appointment == null)
                     throw new KeyNotFoundException("Appointment not found.");
 
                 appointment.Cancel();
-                SaveAppointmentsToFile(appointments);
+                await SaveAppointmentsToFileAsync(appointments);
             }
             catch (Exception ex)
             {
@@ -58,13 +59,13 @@ namespace SmartAppointmentBookingSystem.Services
             }
         }
 
-        private void SaveAppointmentToFile(Appointment appointment)
+        private async Task SaveAppointmentToFileAsync(Appointment appointment)
         {
             try
             {
-                var appointments = LoadAppointmentsFromFile();
+                var appointments = await LoadAppointmentsFromFileAsync();
                 appointments.Add(appointment);
-                SaveAppointmentsToFile(appointments);
+                await SaveAppointmentsToFileAsync(appointments);
             }
             catch (IOException ex)
             {
@@ -73,15 +74,15 @@ namespace SmartAppointmentBookingSystem.Services
             }
         }
 
-        private void SaveAppointmentsToFile(List<Appointment> appointments)
+        private async Task SaveAppointmentsToFileAsync(List<Appointment> appointments)
         {
             try
             {
-                using (var writer = new StreamWriter(_appointmentsFilePath))
+                using (var writer = new StreamWriter(_appointmentsFilePath, false, Encoding.UTF8))
                 {
                     foreach (var appointment in appointments)
                     {
-                        writer.WriteLine($"{appointment.Id},{appointment.Client.Name},{appointment.Professional.Name},{appointment.AppointmentDate},{appointment.Status}");
+                        await writer.WriteLineAsync($"{appointment.Id},{appointment.Client.Name},{appointment.Professional.Name},{appointment.AppointmentDate},{appointment.Status}");
                     }
                 }
             }
@@ -92,7 +93,7 @@ namespace SmartAppointmentBookingSystem.Services
             }
         }
 
-        private List<Appointment> LoadAppointmentsFromFile()
+        public async Task<List<Appointment>> LoadAppointmentsFromFileAsync()
         {
             try
             {
@@ -100,11 +101,11 @@ namespace SmartAppointmentBookingSystem.Services
                     return new List<Appointment>();
 
                 var appointments = new List<Appointment>();
-                using (var reader = new StreamReader(_appointmentsFilePath))
+                using (var reader = new StreamReader(_appointmentsFilePath, Encoding.UTF8))
                 {
                     while (!reader.EndOfStream)
                     {
-                        var line = reader.ReadLine();
+                        var line = await reader.ReadLineAsync();
                         var parts = line.Split(',');
 
                         if (parts.Length == 5)
@@ -129,9 +130,15 @@ namespace SmartAppointmentBookingSystem.Services
 
         private void LogError(Exception ex)
         {
-            // Implement logging logic here (e.g., log to a file, database, or monitoring system)
+
             Console.WriteLine($"Error: {ex.Message}");
         }
+
+        internal void CreateAppointmentAsync()
+        {
+            throw new NotImplementedException();
+        }
+
 
     }
 }
