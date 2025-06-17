@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace SmartAppointmentBookingSystem.Modules
 {
-    internal class Professional
+    public class Professional:User
     {
+        public string Specialty { get; set; }
+
+        public Professional(int id, string name, string email, string specialty)
+            : base(id, name, email)
+        {
+            Specialty = specialty;
+        }
+
     }
 }
