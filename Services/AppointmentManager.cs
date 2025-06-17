@@ -9,6 +9,17 @@ namespace SmartAppointmentBookingSystem.Services
 {
     public class AppointmentManager
     {
+        //using Linq for professionalid,professionalemail
+        private List<Appointment> _appointments;
+        public IEnumerable<Appointment> GetAppointmentsByProfessionalName(string professionalName)
+        {
+            return _appointments.Where(a => a.Professional.Name.Equals(professionalName, StringComparison.OrdinalIgnoreCase));
+        }
+
+        public IEnumerable<Appointment> GetAppointmentsByProfessionalEmail(string professionalEmail)
+        {
+            return _appointments.Where(a => a.Professional.Email.Equals(professionalEmail, StringComparison.OrdinalIgnoreCase));
+        }
         private readonly string _appointmentsFilePath = "appointments.txt";
 
         public async Task<Appointment> CreateAppointmentAsync(User client, Professional professional, DateTime appointmentDate)
