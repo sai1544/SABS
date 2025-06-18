@@ -1,0 +1,15 @@
+C:\Users\chint\OneDrive\Desktop\qwer\obj\Debug\net6.0\SmartAppointmentBookingSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chint\OneDrive\Desktop\qwer\obj\Debug\net6.0\SmartAppointmentBookingSystem.AssemblyInfoInputs.cache
+C:\Users\chint\OneDrive\Desktop\qwer\obj\Debug\net6.0\SmartAppointmentBookingSystem.AssemblyInfo.cs
+C:\Users\chint\OneDrive\Desktop\qwer\obj\Debug\net6.0\SmartAppointmentBookingSystem.csproj.CoreCompileInputs.cache
+C:\Users\chint\OneDrive\Desktop\qwer\obj\Debug\net6.0\SmartAppointmentBookingSystem.sourcelink.json
+C:\Users\chint\OneDrive\Desktop\qwer\bin\Debug\net6.0\SmartAppointmentBookingSystem.exe
+C:\Users\chint\OneDrive\Desktop\qwer\bin\Debug\net6.0\SmartAppointmentBookingSystem.deps.json
+C:\Users\chint\OneDrive\Desktop\qwer\bin\Debug\net6.0\SmartAppointmentBookingSystem.runtimeconfig.json
+C:\Users\chint\OneDrive\Desktop\qwer\bin\Debug\net6.0\SmartAppointmentBookingSystem.dll
+C:\Users\chint\OneDrive\Desktop\qwer\bin\Debug\net6.0\SmartAppointmentBookingSystem.pdb
+C:\Users\chint\OneDrive\Desktop\qwer\obj\Debug\net6.0\SmartAppointmentBookingSystem.dll
+C:\Users\chint\OneDrive\Desktop\qwer\obj\Debug\net6.0\refint\SmartAppointmentBookingSystem.dll
+C:\Users\chint\OneDrive\Desktop\qwer\obj\Debug\net6.0\SmartAppointmentBookingSystem.pdb
+C:\Users\chint\OneDrive\Desktop\qwer\obj\Debug\net6.0\SmartAppointmentBookingSystem.genruntimeconfig.cache
+C:\Users\chint\OneDrive\Desktop\qwer\obj\Debug\net6.0\ref\SmartAppointmentBookingSystem.dll

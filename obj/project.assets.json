@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\chint\\OneDrive\\Desktop\\neeraj\\SmartAppointmentBookingSystem.csproj",
+      "projectUniqueName": "C:\\Users\\chint\\OneDrive\\Desktop\\qwer\\SmartAppointmentBookingSystem.csproj",
       "projectName": "SmartAppointmentBookingSystem",
-      "projectPath": "C:\\Users\\chint\\OneDrive\\Desktop\\neeraj\\SmartAppointmentBookingSystem.csproj",
+      "projectPath": "C:\\Users\\chint\\OneDrive\\Desktop\\qwer\\SmartAppointmentBookingSystem.csproj",
       "packagesPath": "C:\\Users\\chint\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\chint\\OneDrive\\Desktop\\neeraj\\obj\\",
+      "outputPath": "C:\\Users\\chint\\OneDrive\\Desktop\\qwer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
