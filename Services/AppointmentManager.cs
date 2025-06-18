@@ -43,7 +43,7 @@ namespace SmartAppointmentBookingSystem.Services
 
 
                 var newAppointment = new Appointment(
-                    id: new Random().Next(1, 1000),
+                    id: new Random().Next(1, 10000),
                     client: client,
                     professional: professional,
                     appointmentDate: appointmentDate
